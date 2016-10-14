@@ -41,7 +41,7 @@
                         </div>
                           <div class="panel-body row">
                             <div class="col-xs-3">
-                                <img ng-src="" class="img-responsive">
+                                <img ng-src="{{base_url + 'w500' + movie.poster_path}}" class="img-responsive">
                             </div>
                             <div class="col-xs-6">
                                 <h5>Overview:</h5>
@@ -67,6 +67,7 @@
         <script type="text/javascript" src="app/factories/CompaniesFactory.js"></script>
         <script type="text/javascript" src="app/factories/MoviesFactory.js"></script>
         <script type="text/javascript" src="app/controllers/CompaniesCtrl.js"></script>
+        <script type="text/javascript" src="app/factories/MDConfigFactory.js"></script>
 
     </body>
 </html>

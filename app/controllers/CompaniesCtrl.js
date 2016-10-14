@@ -1,8 +1,9 @@
-App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', function($scope, CompaniesFactory, MoviesFactory) {
+App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 'MDConfigFactory', function($scope, CompaniesFactory, MoviesFactory, MDConfigFactory) {
   
 	$scope.movieList = [];
 	$scope.companyList = [];
 	$scope.currentPage = 1;
+	$scope.base_url = "";
 
 	$scope.selectCompany = (company) => {
 		getMoviesData(company.id);
@@ -27,5 +28,11 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 			$scope.movieList = data.results;
 		});
 	};
+
+	MDConfigFactory.getConfigs().then((data) => {
+		console.log("MD Config", data);
+		let movieDatabaseConfigs = data;
+		$scope.base_url = movieDatabaseConfigs.images.base_url;
+	});
 
 }]);
