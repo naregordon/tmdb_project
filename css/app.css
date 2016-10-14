@@ -1,7 +1,9 @@
 body {
   background: #ccc; }
   body .navbar {
-    background: #337ab7; }
+    background: #337ab7;
+    border: none;
+    border-radius: 0; }
     body .navbar-brand {
       color: #fff; }
   body .main-results .panel {

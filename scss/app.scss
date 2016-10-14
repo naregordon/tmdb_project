@@ -8,6 +8,8 @@ body {
 
 	.navbar {
 		background: $blue-bg;
+		border: none;
+    	border-radius: 0;
 
 		&-brand {
 			color: $white-txt;
@@ -18,7 +20,7 @@ body {
 		&-results {
 			.panel {
 				border: none;
-				
+
 				.panel-heading {
 					background: $blue-bg;
 					color: $white-txt;
