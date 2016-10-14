@@ -29,10 +29,10 @@
                 <div class="row">
                     <div class="col-sm-3 list-group">
                         <h3>Companies</h3>
-                        <div class="list-group-item" ng-click="selectCompany(company)" ng-repeat="company in companyList">{{company.name}}</div>
+                        <div class="list-group-item" ng-click="selectCompany(company)" ng-repeat="company in companyList" ng-class="{'active' : selectedCompany.id === company.id}">{{company.name}}</div>
                     </div>
                     <div class="col-sm-9">
-                        <h3>Movies</h3>
+                        <h3>Movies from: {{selectedCompany.name}}</h3>
                         <div class="panel panel-default" ng-repeat="movie in movieList">
                           <div class="panel-heading">
                             <h4>

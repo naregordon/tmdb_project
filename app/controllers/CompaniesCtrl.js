@@ -3,10 +3,12 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 	$scope.movieList = [];
 	$scope.companyList = [];
 	$scope.currentPage = 1;
+	$scope.selectedCompany = {};
 	$scope.base_url = "";
 
 	$scope.selectCompany = (company) => {
 		getMoviesData(company.id);
+		$scope.selectedCompany = company;
 	};
 
 	$scope.searchCompany = (search) => {
@@ -19,6 +21,7 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 		CompaniesFactory.getCompanies(query).then((data) => {
 			console.log("Companies", data);
 			$scope.companyList = data.results;
+			$scope.selectedCompany = $scope.companyList[0];
 		});
 	};
 
