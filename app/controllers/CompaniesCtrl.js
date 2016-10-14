@@ -5,6 +5,9 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 	$scope.currentPage = 1;
 	$scope.selectedCompany = {};
 	$scope.base_url = "";
+	$scope.currentPage = 1;
+	$scope.maxSize = 5;
+	$scope.totalItems;
 
 	$scope.selectCompany = (company) => {
 		getMoviesData(company.id);
@@ -16,6 +19,10 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 			getCompanyList(search);
 		};
 	};
+
+	$scope.$watch('currentPage', () => {
+		getMoviesData($scope.selectedCompany.id, $scope.currentPage);
+	});
 
 	var canCall = true;
 	var getCompanyList = (query) => {
@@ -35,6 +42,7 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 		MoviesFactory.getMovies(companyId, page).then((data) => {
 			console.log("Movies", data);
 			$scope.movieList = data.results;
+			$scope.totalItems = data.total_results / 2;
 		});
 	};
 
