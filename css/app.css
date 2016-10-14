@@ -6,6 +6,8 @@ body {
     border-radius: 0; }
     body .navbar-brand {
       color: #fff; }
+  body .main-results .list-group-item {
+    cursor: pointer; }
   body .main-results .panel {
     border: none; }
     body .main-results .panel .panel-heading {

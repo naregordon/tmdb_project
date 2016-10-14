@@ -18,6 +18,11 @@ body {
 
 	.main {
 		&-results {
+
+			.list-group-item {
+				cursor: pointer;
+			}
+
 			.panel {
 				border: none;
 
