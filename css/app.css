@@ -1,0 +1,15 @@
+body {
+  background: #ccc; }
+  body .navbar {
+    background: #337ab7; }
+    body .navbar-brand {
+      color: #fff; }
+  body .main-results .panel {
+    border: none; }
+    body .main-results .panel .panel-heading {
+      background: #337ab7;
+      color: #fff; }
+      body .main-results .panel .panel-heading .glyphicon-star {
+        color: #ffff0a; }
+
+/*# sourceMappingURL=app.css.map */

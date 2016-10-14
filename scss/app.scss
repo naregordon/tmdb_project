@@ -1,0 +1,33 @@
+$gray-bg: #ccc;
+$blue-bg: #337ab7;
+$white-txt: #fff;
+$star-color: #ffff0a;
+
+body {
+	background: $gray-bg;
+
+	.navbar {
+		background: $blue-bg;
+
+		&-brand {
+			color: $white-txt;
+		}
+	}
+
+	.main {
+		&-results {
+			.panel {
+				border: none;
+				
+				.panel-heading {
+					background: $blue-bg;
+					color: $white-txt;
+
+					.glyphicon-star {
+						color: $star-color;
+					}
+				}
+			}
+		}
+	}
+}

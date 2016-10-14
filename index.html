@@ -7,7 +7,7 @@
     </head>
 
     <body ng-controller="CompaniesCtrl">
-        <nav class="navbar navbar-default">
+        <nav class="navbar">
           <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="#">
@@ -25,7 +25,7 @@
 
         <div class="main container">
 
-            <div class="jumbotron main__placeholder" ng-hide="searched">
+            <div class="jumbotron main-placeholder" ng-hide="searched">
                 <h1 class="text-center">Search for a movie producer</h1>
                 <br>
                 <form class="navbar-form text-center" role="search" ng-submit="searchCompany(mainSearch)">
@@ -36,7 +36,7 @@
                 </form>
             </div>
 
-            <div class="main__results" ng-show="searched">
+            <div class="main-results" ng-show="searched">
                 <div class="row">
                     <div class="col-sm-3 list-group">
                         <h3>Companies</h3>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-sm-9">
                         <h3>Movies from: {{selectedCompany.name}}</h3>
-                        <div class="panel panel-default" ng-repeat="movie in movieList">
+                        <div class="panel" ng-repeat="movie in movieList">
                           <div class="panel-heading">
                             <h4>
                                 {{ movie.title }}
