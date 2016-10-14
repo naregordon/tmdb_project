@@ -17,12 +17,18 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 		};
 	};
 
+	var canCall = true;
 	var getCompanyList = (query) => {
+		if (!canCall) return;
+        canCall = false;
+
 		CompaniesFactory.getCompanies(query).then((data) => {
-			console.log("Companies", data);
 			$scope.companyList = data.results;
 			$scope.selectedCompany = $scope.companyList[0];
+			getMoviesData($scope.selectedCompany.id);
 		});
+
+		setTimeout(() => { canCall = true }, 1000);
 	};
 
 	var getMoviesData = (companyId, page = $scope.currentPage) => {
