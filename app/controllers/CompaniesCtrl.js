@@ -42,14 +42,12 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 
 	var getMoviesData = (companyId, page = $scope.currentPage) => {
 		MoviesFactory.getMovies(companyId, page).then((data) => {
-			console.log("Movies", data);
 			$scope.movieList = data.results;
 			$scope.totalItems = data.total_results / 2;
 		});
 	};
 
 	MDConfigFactory.getConfigs().then((data) => {
-		console.log("MD Config", data);
 		let movieDatabaseConfigs = data;
 		$scope.base_url = movieDatabaseConfigs.images.base_url;
 	});
