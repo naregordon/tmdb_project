@@ -25,7 +25,18 @@
 
         <div class="main container">
 
-            <div class="main__results">
+            <div class="jumbotron main__placeholder" ng-hide="searched">
+                <h1 class="text-center">Search for a movie producer</h1>
+                <br>
+                <form class="navbar-form text-center" role="search" ng-submit="searchCompany(mainSearch)">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search Company" ng-model="mainSearch">
+                    <input type="submit" class="form-control" value="Search">
+                  </div>
+                </form>
+            </div>
+
+            <div class="main__results" ng-show="searched">
                 <div class="row">
                     <div class="col-sm-3 list-group">
                         <h3>Companies</h3>

@@ -1,5 +1,6 @@
 App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 'MDConfigFactory', function($scope, CompaniesFactory, MoviesFactory, MDConfigFactory) {
   
+  	$scope.searched = false;
 	$scope.movieList = [];
 	$scope.companyList = [];
 	$scope.currentPage = 1;
@@ -33,6 +34,7 @@ App.controller('CompaniesCtrl', ['$scope', 'CompaniesFactory', 'MoviesFactory', 
 			$scope.companyList = data.results;
 			$scope.selectedCompany = $scope.companyList[0];
 			getMoviesData($scope.selectedCompany.id);
+			$scope.searched = true;
 		});
 
 		setTimeout(() => { canCall = true }, 1000);
