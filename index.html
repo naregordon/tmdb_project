@@ -48,6 +48,7 @@
                           <div class="panel-heading">
                             <h4>
                                 {{ movie.title }}
+                                <span class="pull-right" uib-rating ng-model="movie.vote_average / 2" max="5" read-only="true" on-hover="hoveringOver(value)" on-leave="overStar = null" aria-labelledby="default-rating"></span>
                             </h4>
                         </div>
                           <div class="panel-body row">
