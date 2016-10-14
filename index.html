@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="MovieProducersApp">
     <head>
         <title>Movie Producers App</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
     </head>
 
-    <body>
+    <body ng-controller="CompaniesCtrl">
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -14,17 +14,59 @@
                 Movie Producers
               </a>
             </div>
+
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Company" ng-model="navSearch" ng-change="searchCompany(navSearch)">
+              </div>
+            </form>
           </div>
         </nav>
 
         <div class="main container">
 
+            <div class="main__results">
+                <div class="row">
+                    <div class="col-sm-3 list-group">
+                        <h3>Companies</h3>
+                        <div class="list-group-item" ng-click="selectCompany(company)" ng-repeat="company in companyList">{{company.name}}</div>
+                    </div>
+                    <div class="col-sm-9">
+                        <h3>Movies</h3>
+                        <div class="panel panel-default" ng-repeat="movie in movieList">
+                          <div class="panel-heading">
+                            <h4>
+                                {{ movie.title }}
+                            </h4>
+                        </div>
+                          <div class="panel-body row">
+                            <div class="col-xs-3">
+                                <img ng-src="" class="img-responsive">
+                            </div>
+                            <div class="col-xs-6">
+                                <h5>Overview:</h5>
+                                <p>{{ movie.overview }}</p>
+                            </div>
+                            <div class="col-xs-3">
+                                <h5>Release date:</h5>
+                                <p>{{movie.release_date}}</p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Angular -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
+
+        <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="app/factories/CompaniesFactory.js"></script>
+        <script type="text/javascript" src="app/factories/MoviesFactory.js"></script>
+        <script type="text/javascript" src="app/controllers/CompaniesCtrl.js"></script>
 
     </body>
 </html>
